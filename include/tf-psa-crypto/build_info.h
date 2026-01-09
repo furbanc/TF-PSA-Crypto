@@ -114,7 +114,11 @@
 #if defined(TF_PSA_CRYPTO_CONFIG_FILE)
 #include TF_PSA_CRYPTO_CONFIG_FILE
 #else
+#ifdef _RTE_
+#include "mbedTLS_crypto_config.h"
+#else
 #include "psa/crypto_config.h"
+#endif
 #endif
 #if defined(TF_PSA_CRYPTO_USER_CONFIG_FILE)
 #include TF_PSA_CRYPTO_USER_CONFIG_FILE
